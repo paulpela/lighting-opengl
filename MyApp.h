@@ -15,6 +15,7 @@ class MyApp : public App {
         void update();
 
         void updateShininess(float value);
+        void updateRimLightPower(float value);
     private:
         GLSLProgram    *m_shader;
 
@@ -29,6 +30,7 @@ class MyApp : public App {
         GLuint          m_buffers[NUM_BUFFERS];
         glm::vec3       m_lightDirection;
         GLfloat         m_shininess;
+        GLfloat         m_rimLightPower;
 
         GLfloat         m_counter;
 };

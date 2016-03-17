@@ -25,6 +25,7 @@ void MyApp::render() {
     m_shader->setUniformMatrix("projectionMatrix", m_projectionMatrix);
     m_shader->setUniformVector("lightDirection", m_lightDirection);
     m_shader->setUniformFloat("shininess", m_shininess);
+    m_shader->setUniformFloat("rimPower", m_rimLightPower);
 
     glBindVertexArray(m_VAO);
     glDrawElements(GL_TRIANGLES, 300000, GL_UNSIGNED_INT, 0);
@@ -70,6 +71,7 @@ MyApp::MyApp() : App() {
     m_counter = 0.0f;
 
     m_shininess = 27.8974f;
+    m_rimLightPower = 1.0f;
 }
 
 MyApp::~MyApp() {
@@ -93,4 +95,8 @@ void MyApp::updateShininess(float value) {
     if(m_shininess > 254.0f) {
         m_shininess = 254.0f;
     }
+}
+
+void MyApp::updateRimLightPower(float value) {
+    m_rimLightPower += value;
 }

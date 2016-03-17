@@ -34,11 +34,19 @@ void keyboardHandler(unsigned char key, int x, int y) {
     extern MyApp *g_app;
 
     if(key == 'w') {
+        g_app->updateShininess(+10.0f);
+    }
+
+    if(key == 's') {
         g_app->updateShininess(-10.0f);
     }
 
     if(key == 'e') {
-        g_app->updateShininess(10.0f);
+        g_app->updateRimLightPower(1.0f);
+    }
+
+    if(key == 'd') {
+        g_app->updateRimLightPower(-1.0f);
     }
 }
 
