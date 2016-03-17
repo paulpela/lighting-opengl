@@ -1,0 +1,4 @@
+specular
+*.o
+*.dwo
+tags
