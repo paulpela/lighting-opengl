@@ -12,6 +12,7 @@ MyApp *g_app;
 
 int main(int argc, char **argv) {
     glutInit(&argc, argv);
+    glutInitContextProfile(GLUT_CORE_PROFILE | GLUT_DEBUG);
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_DEPTH | GLUT_MULTISAMPLE | GLUT_RGBA);
     glutInitWindowSize(SCREEN_X, SCREEN_Y);
     glutCreateWindow(argv[0]);
