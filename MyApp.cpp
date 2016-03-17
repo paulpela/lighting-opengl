@@ -26,6 +26,8 @@ void MyApp::render() {
     m_shader->setUniformVector("lightDirection", m_lightDirection);
     m_shader->setUniformFloat("shininess", m_shininess);
     m_shader->setUniformFloat("rimPower", m_rimLightPower);
+    m_shader->setUniformInt("specularOn", m_isSpecularOn);
+    m_shader->setUniformInt("rimLightOn", m_isRimLightOn);
 
     glBindVertexArray(m_VAO);
     glDrawElements(GL_TRIANGLES, 300000, GL_UNSIGNED_INT, 0);
@@ -72,6 +74,9 @@ MyApp::MyApp() : App() {
 
     m_shininess = 27.8974f;
     m_rimLightPower = 1.0f;
+
+    m_isSpecularOn = true;
+    m_isRimLightOn = true;
 }
 
 MyApp::~MyApp() {
@@ -99,4 +104,12 @@ void MyApp::updateShininess(float value) {
 
 void MyApp::updateRimLightPower(float value) {
     m_rimLightPower += value;
+}
+
+void MyApp::switchSpecular() {
+    m_isSpecularOn = m_isSpecularOn ? false : true;
+}
+
+void MyApp::switchRimLight() {
+    m_isRimLightOn = m_isRimLightOn ? false : true;
 }

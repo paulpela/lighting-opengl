@@ -7,11 +7,13 @@ in VS_OUT {
 } fs_in;
 
 uniform vec3 diffuseAlbedo = vec3(0.780392, 0.568627, 0.113725);
-/*uniform vec3 specularAlbedo = vec3(0.992157, 0.941176, 0.807843);*/
 uniform vec3 specularAlbedo = vec3(0.1, 0.1, 0.1);
 
 uniform float shininess = 128.0;
 uniform float rimPower = 1.0;
+
+uniform int specularOn = 1;
+uniform int rimLightOn = 1;
 
 out vec4 out_color;
 
@@ -36,7 +38,16 @@ void main() {
     vec3 R = reflect(-L, N);
 
     vec3 diffuse = max(dot(N, L), 0.0) * diffuseAlbedo;
-    vec3 specular = pow(max(dot(R, V), 0.0), shininess) * specularAlbedo;
 
-    out_color = ambient + vec4(diffuse + specular + rimLight(N, V), 1.0);
+    vec3 specular = vec3(0.0);
+
+    if(specularOn == 1) {
+        specular = pow(max(dot(R, V), 0.0), shininess) * specularAlbedo;
+    }
+
+    if(rimLightOn == 1) {
+        out_color = ambient + vec4(diffuse + specular + rimLight(N, V), 1.0);
+    } else {
+        out_color = ambient + vec4(diffuse + specular, 1.0);
+    }
 }

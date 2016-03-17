@@ -16,6 +16,9 @@ class MyApp : public App {
 
         void updateShininess(float value);
         void updateRimLightPower(float value);
+
+        void switchSpecular();
+        void switchRimLight();
     private:
         GLSLProgram    *m_shader;
 
@@ -33,4 +36,7 @@ class MyApp : public App {
         GLfloat         m_rimLightPower;
 
         GLfloat         m_counter;
+
+        bool            m_isSpecularOn;
+        bool            m_isRimLightOn;
 };

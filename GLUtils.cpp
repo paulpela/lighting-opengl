@@ -41,12 +41,20 @@ void keyboardHandler(unsigned char key, int x, int y) {
         g_app->updateShininess(-10.0f);
     }
 
+    if(key == 'x') {
+        g_app->switchSpecular();
+    }
+
     if(key == 'e') {
         g_app->updateRimLightPower(1.0f);
     }
 
     if(key == 'd') {
         g_app->updateRimLightPower(-1.0f);
+    }
+
+    if(key == 'c') {
+        g_app->switchRimLight();
     }
 }
 
