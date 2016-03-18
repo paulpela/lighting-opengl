@@ -18,6 +18,7 @@ void MyApp::render() {
     glm::vec3 rotation = glm::vec3(0.0f, 0.0f, 1.0f);
     glm::vec3 rotationY = glm::vec3(0.0f, 1.0f, 0.0f);
     modelViewMatrix = glm::translate(modelViewMatrix, translation);
+    modelViewMatrix = glm::translate(modelViewMatrix, m_movementModifier);
     modelViewMatrix = glm::rotate(modelViewMatrix, glm::radians(180.0f), rotation);
     modelViewMatrix = glm::rotate(modelViewMatrix, glm::radians(m_counter / 4.0f), rotationY);
 
@@ -77,6 +78,8 @@ MyApp::MyApp() : App() {
 
     m_isSpecularOn = false;
     m_isRimLightOn = false;
+
+    m_movementModifier = glm::vec3(0.0f, 0.0f, 0.0f);
 }
 
 MyApp::~MyApp() {
@@ -119,4 +122,10 @@ void MyApp::switchRimLight() {
 
 void MyApp::pauseRotation() {
     m_isPaused = m_isPaused ? false : true;
+}
+
+void MyApp::move(const glm::vec3 &displacement) {
+    m_movementModifier.x += displacement.x;
+    m_movementModifier.y += displacement.y;
+    m_movementModifier.z += displacement.z;
 }

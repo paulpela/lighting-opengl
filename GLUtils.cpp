@@ -2,6 +2,7 @@
 
 #include <GL/glew.h>
 #include <GL/freeglut.h>
+#include <glm/glm.hpp>
 
 #include "GLUtils.h"
 #include "MyApp.h"
@@ -33,32 +34,53 @@ void keyboardHandler(unsigned char key, int x, int y) {
 
     extern MyApp *g_app;
 
-    if(key == 'w') {
-        g_app->updateShininess(+10.0f);
+    switch(key) {
+        case 'w':
+            g_app->updateShininess(+10.0f);
+            break;
+        case 's':
+            g_app->updateShininess(-10.0f);
+            break;
+        case 'x':
+            g_app->switchSpecular();
+            break;
+        case 'e':
+            g_app->updateRimLightPower(1.0f);
+            break;
+        case 'd':
+            g_app->updateRimLightPower(-1.0f);
+            break;
+        case 'c':
+            g_app->switchRimLight();
+            break;
+        case ' ':
+            g_app->pauseRotation();
+            break;
+        case '+':
+            g_app->move(glm::vec3(0.0f, 0.0f, MOVEMENT_SPEED));
+            break;
+        case '-':
+            g_app->move(glm::vec3(0.0f, 0.0f, -MOVEMENT_SPEED));
+            break;
     }
+}
 
-    if(key == 's') {
-        g_app->updateShininess(-10.0f);
-    }
+void keyboardHandlerSpecial(int key, int x, int y) {
+    extern MyApp *g_app;
 
-    if(key == 'x') {
-        g_app->switchSpecular();
-    }
-
-    if(key == 'e') {
-        g_app->updateRimLightPower(1.0f);
-    }
-
-    if(key == 'd') {
-        g_app->updateRimLightPower(-1.0f);
-    }
-
-    if(key == 'c') {
-        g_app->switchRimLight();
-    }
-
-    if(key == ' ') {
-        g_app->pauseRotation();
+    switch(key) {
+        case GLUT_KEY_LEFT:
+            g_app->move(glm::vec3(-MOVEMENT_SPEED, 0.0f, 0.0f));
+            break;
+        case GLUT_KEY_RIGHT:
+            g_app->move(glm::vec3(MOVEMENT_SPEED, 0.0f, 0.0f));
+            break;
+        case GLUT_KEY_UP:
+            g_app->move(glm::vec3(0.0f, MOVEMENT_SPEED, 0.0f));
+            break;
+        case GLUT_KEY_DOWN:
+            g_app->move(glm::vec3(0.0f, -MOVEMENT_SPEED, 0.0f));
+            break;
     }
 }
 

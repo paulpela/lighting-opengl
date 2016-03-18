@@ -21,6 +21,8 @@ class MyApp : public App {
         void switchRimLight();
 
         void pauseRotation();
+
+        void move(const glm::vec3 &displacement);
     private:
         GLSLProgram    *m_shader;
 
@@ -42,4 +44,6 @@ class MyApp : public App {
         bool            m_isSpecularOn;
         bool            m_isRimLightOn;
         bool            m_isPaused;
+
+        glm::vec3       m_movementModifier;
 };

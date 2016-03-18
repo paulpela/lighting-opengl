@@ -23,6 +23,7 @@ int main(int argc, char **argv) {
 
     glutDisplayFunc(render);
     glutKeyboardFunc(keyboardHandler);
+    glutSpecialFunc(keyboardHandlerSpecial);
     glutMouseFunc(mouseHandler);
     glutReshapeFunc(onResize);
     glutTimerFunc(1000/FPS, mainLoop, 0);
