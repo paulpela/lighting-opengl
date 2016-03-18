@@ -19,6 +19,8 @@ class MyApp : public App {
 
         void switchSpecular();
         void switchRimLight();
+
+        void pauseRotation();
     private:
         GLSLProgram    *m_shader;
 
@@ -39,4 +41,5 @@ class MyApp : public App {
 
         bool            m_isSpecularOn;
         bool            m_isRimLightOn;
+        bool            m_isPaused;
 };

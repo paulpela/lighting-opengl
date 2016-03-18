@@ -85,7 +85,10 @@ MyApp::~MyApp() {
 
 
 void MyApp::update() {
-    m_counter += 1.0f;
+    if(!m_isPaused) {
+        m_counter += 1.0f;
+    }
+
     m_lightDirection.x = -(m_mousePosition.x - (float) SCREEN_X / 2);
     m_lightDirection.y = m_mousePosition.y - (float) SCREEN_Y / 2;
 }
@@ -112,4 +115,8 @@ void MyApp::switchSpecular() {
 
 void MyApp::switchRimLight() {
     m_isRimLightOn = m_isRimLightOn ? false : true;
+}
+
+void MyApp::pauseRotation() {
+    m_isPaused = m_isPaused ? false : true;
 }

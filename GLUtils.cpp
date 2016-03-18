@@ -56,6 +56,10 @@ void keyboardHandler(unsigned char key, int x, int y) {
     if(key == 'c') {
         g_app->switchRimLight();
     }
+
+    if(key == ' ') {
+        g_app->pauseRotation();
+    }
 }
 
 void onResize(int x, int y) {

@@ -1,15 +1,16 @@
 # Playing around with lighting in OpenGL
 
-![screenshot](https://raw.githubusercontent.com/paulpela/lighting-opengl/master/screenshot.png
-"screenshot")
-
 Uses ambient, specular and rim lighting via shading.
 
 The shaders require at least OpenGL 3.3.
 
+![screenshot](https://raw.githubusercontent.com/paulpela/lighting-opengl/master/screenshot.png
+"screenshot")
+
 ## Usage
 
 - `q` - quit
+- `space` - pause rotation
 
 ### Specular lighting
 
