@@ -75,8 +75,8 @@ MyApp::MyApp() : App() {
     m_shininess = 27.8974f;
     m_rimLightPower = 1.0f;
 
-    m_isSpecularOn = true;
-    m_isRimLightOn = true;
+    m_isSpecularOn = false;
+    m_isRimLightOn = false;
 }
 
 MyApp::~MyApp() {
