@@ -12,6 +12,11 @@ The shaders require at least OpenGL 3.3.
 - `q` - quit
 - `space` - pause rotation
 
+### Movement
+
+- `arrow keys` - up, down, left and right movement
+- `keypad +`, `keypad -` - zoom in and out
+
 ### Specular lighting
 
 - `w` and `s` - increase and decrease specular power
