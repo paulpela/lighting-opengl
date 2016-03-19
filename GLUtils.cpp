@@ -24,7 +24,17 @@ void mainLoop(int t) {
 }
 
 void mouseHandler(int button, int state, int x, int y) {
+    extern MyApp *g_app;
 
+    if(state == 0) {
+        if(button == 3) {
+            g_app->move(glm::vec3(0.0f, 0.0f, MOVEMENT_SPEED));
+        }
+
+        if(button == 4) {
+            g_app->move(glm::vec3(0.0f, 0.0f, -MOVEMENT_SPEED));
+        }
+    }
 }
 
 void keyboardHandler(unsigned char key, int x, int y) {

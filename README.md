@@ -15,7 +15,7 @@ The shaders require at least OpenGL 3.3.
 ### Movement
 
 - `arrow keys` - up, down, left and right movement
-- `keypad +`, `keypad -` - zoom in and out
+- `keypad +`, `keypad -` - zoom in and out (also: mouse scroll wheel)
 
 ### Specular lighting
 
