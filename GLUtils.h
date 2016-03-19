@@ -8,3 +8,4 @@ void keyboardHandler(unsigned char key, int x, int y);
 void keyboardHandlerSpecial(int key, int x, int y);
 void onResize(int x, int y);
 void passiveMouseMotion(int x, int y);
+void mouseMotion(int x, int y);

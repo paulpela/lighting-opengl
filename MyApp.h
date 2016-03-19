@@ -23,6 +23,7 @@ class MyApp : public App {
         void pauseRotation();
 
         void move(const glm::vec3 &displacement);
+        void updateLightDirection(bool state);
     private:
         GLSLProgram    *m_shader;
 
@@ -36,6 +37,7 @@ class MyApp : public App {
         GLuint          m_VAO;
         GLuint          m_buffers[NUM_BUFFERS];
         glm::vec3       m_lightDirection;
+        bool            m_isUpdatingLightDirection = false;
         GLfloat         m_shininess;
         GLfloat         m_rimLightPower;
 

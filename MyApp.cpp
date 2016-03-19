@@ -86,14 +86,19 @@ MyApp::~MyApp() {
     delete m_shader;
 }
 
+void MyApp::updateLightDirection(bool state) {
+    m_isUpdatingLightDirection = state;
+}
 
 void MyApp::update() {
     if(!m_isPaused) {
         m_counter += 1.0f;
     }
 
-    m_lightDirection.x = -(m_mousePosition.x - (float) SCREEN_X / 2);
-    m_lightDirection.y = m_mousePosition.y - (float) SCREEN_Y / 2;
+    if(m_isUpdatingLightDirection) {
+        m_lightDirection.x = -(m_mousePosition.x - (float) SCREEN_X / 2);
+        m_lightDirection.y = m_mousePosition.y - (float) SCREEN_Y / 2;
+    }
 }
 
 void MyApp::updateShininess(float value) {

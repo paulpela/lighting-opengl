@@ -1,5 +1,6 @@
 #include "config.h"
 
+#include <iostream>
 #include <GL/glew.h>
 #include <GL/freeglut.h>
 #include <glm/glm.hpp>
@@ -26,14 +27,20 @@ void mainLoop(int t) {
 void mouseHandler(int button, int state, int x, int y) {
     extern MyApp *g_app;
 
-    if(state == 0) {
-        if(button == 3) {
-            g_app->move(glm::vec3(0.0f, 0.0f, MOVEMENT_SPEED));
+    if(button == 2) {
+        if(state == 0) {
+            g_app->updateLightDirection(true);
+        } else {
+            g_app->updateLightDirection(false);
         }
+    }
 
-        if(button == 4) {
-            g_app->move(glm::vec3(0.0f, 0.0f, -MOVEMENT_SPEED));
-        }
+    if(button == 3 && state == 0) {
+        g_app->move(glm::vec3(0.0f, 0.0f, MOVEMENT_SPEED));
+    }
+
+    if(button == 4 && state == 0) {
+        g_app->move(glm::vec3(0.0f, 0.0f, -MOVEMENT_SPEED));
     }
 }
 
@@ -96,6 +103,11 @@ void keyboardHandlerSpecial(int key, int x, int y) {
 
 void onResize(int x, int y) {
     glViewport(0, 0, x, y);
+}
+
+void mouseMotion(int x, int y) {
+    extern MyApp *g_app;
+    g_app->updateMousePosition(x, y);
 }
 
 void passiveMouseMotion(int x, int y) {

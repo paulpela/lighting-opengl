@@ -28,6 +28,7 @@ int main(int argc, char **argv) {
     glutReshapeFunc(onResize);
     glutTimerFunc(1000/FPS, mainLoop, 0);
     glutPassiveMotionFunc(passiveMouseMotion);
+    glutMotionFunc(mouseMotion);
 
 #ifdef FULLSCREEN
     glutFullScreen();
